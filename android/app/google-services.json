@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "503066072446",
+    "project_id": "watchnext-b1bdb",
+    "storage_bucket": "watchnext-b1bdb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503066072446:android:8dc764af43ccab62f3cf2f",
+        "android_client_info": {
+          "package_name": "com.example.myflutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "503066072446-5l3gkoo68568v15nmqjmr7rj1b3lp81g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFc2WkDQ2fG2am4gsNbH7-F7zF9SwVCW0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "503066072446-5l3gkoo68568v15nmqjmr7rj1b3lp81g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
