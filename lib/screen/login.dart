@@ -24,6 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
+        key: Key('loginja'),
         future: firebase,
         builder: (context, snapshot) {
           if (snapshot.hasError) {
@@ -81,6 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Column(
                           children: [
                             TextFormField(
+                              key: Key('emailja'),
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.black,
@@ -136,6 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               height: 55,
                               width: double.infinity,
                               child: ElevatedButton(
+                                key: Key('loginbtn'),
                                 style: ElevatedButton.styleFrom(
                                     primary: Color(0xFF7843E6),
                                     onPrimary: Colors.white,
@@ -185,6 +188,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               height: 55,
                               width: double.infinity,
                               child: ElevatedButton(
+                                key: Key("Create"),
                                   style: ElevatedButton.styleFrom(
                                       primary: Color(0xFFE82C3A),
                                       onPrimary: Colors.white,

@@ -24,6 +24,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               Padding(
+                key: Key('Register'),
                 padding: const EdgeInsets.symmetric(horizontal: 30.0),
                 child: SizedBox(
                     width: double.infinity,
@@ -45,6 +46,7 @@ class HomeScreen extends StatelessWidget {
               ),
               SizedBox(height: 15),
               Padding(
+                key: Key('LogIn'),
                 padding: const EdgeInsets.symmetric(horizontal: 30.0),
                 child: SizedBox(
                     width: double.infinity,

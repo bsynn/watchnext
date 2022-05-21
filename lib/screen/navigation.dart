@@ -26,6 +26,7 @@ class _BottomNavigationBarExampleState
   Widget build(BuildContext context) {
     var provider = Provider.of<BottomNavigationBarProvider>(context);
     return Scaffold(
+      key: Key('navigationpage'),
       body: currentTab[provider.currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.black,
