@@ -11,7 +11,7 @@ class LogInrobot {
   final WidgetTester tester;
 
   Future<void> findTitle() async {
-    await tester.pumpAndSettle();
+    await tester.pumpAndSettle(new Duration(seconds: 5));
     expect(find.text("Log In"), findsWidgets);
   }
 
@@ -31,5 +31,6 @@ class LogInrobot {
     final Createbtn = find.byKey(const Key('Createbtn'));
     await tester.tap(Createbtn);
     await tester.pumpAndSettle(new Duration(seconds: 5));
+    expect(find.text("Create Account"), findsWidgets);
   }
 }

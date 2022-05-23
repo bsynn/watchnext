@@ -25,7 +25,7 @@ void main() {
       app.main();
 
       homerobot = Homerobot(tester);
-      await homerobot.findBtn();
+      await homerobot.findTitle();
 
       logInrobot = LogInrobot(tester);
       await logInrobot.findTitle();
@@ -44,15 +44,18 @@ void main() {
       app.main();
 
       homerobot = Homerobot(tester);
-      await homerobot.findBtn();
+      await homerobot.findTitle();
       await Future.delayed(Duration(seconds: 5));
     });
 
+  });
+
+  group('login', () {
     testWidgets('login', (WidgetTester tester) async {
       app.main();
 
       homerobot = Homerobot(tester);
-      await homerobot.findBtn();
+      await homerobot.findTitle();
       await homerobot.tapLogIn();
 
       logInrobot = LogInrobot(tester);
@@ -61,11 +64,26 @@ void main() {
       await Future.delayed(Duration(seconds: 5));
     });
 
+    testWidgets('tapCreateButton', (WidgetTester tester) async {
+      app.main();
+
+      homerobot = Homerobot(tester);
+      await homerobot.findTitle();
+      await homerobot.tapLogIn();
+
+      logInrobot = LogInrobot(tester);
+      await logInrobot.findTitle();
+      await logInrobot.tapCreate();
+      await Future.delayed(Duration(seconds: 5));
+    });
+  });
+
+  group('Register', () {
     testWidgets('Create', (WidgetTester tester) async {
       app.main();
 
       homerobot = Homerobot(tester);
-      await homerobot.findBtn();
+      await homerobot.findTitle();
       await homerobot.tapRegister();
 
       createrobot = Createrobot(tester);
@@ -77,4 +95,9 @@ void main() {
       await Future.delayed(Duration(seconds: 5));
     });
   });
+
+
+  //group('login', () {
+    
+  //});
 }

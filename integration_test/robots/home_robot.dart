@@ -9,7 +9,7 @@ class Homerobot {
   const Homerobot(this.tester);
   final WidgetTester tester;
 
-  Future<void> findBtn() async {
+  Future<void> findTitle() async {
     await tester.pumpAndSettle(new Duration(seconds: 5));
 
     final Loginbtn = find.byKey(const Key('LogIn'));
@@ -19,8 +19,6 @@ class Homerobot {
   }
 
   Future<void> tapLogIn() async {
-    await tester.pumpAndSettle(new Duration(seconds: 5));
-
     final Loginbtn = find.byKey(const Key('LogIn'));
     await tester.ensureVisible(Loginbtn);
     await tester.tap(Loginbtn);
@@ -28,8 +26,6 @@ class Homerobot {
   }
 
   Future<void> tapRegister() async {
-    await tester.pumpAndSettle(new Duration(seconds: 5));
-
     final Regisbtn = find.byKey(const Key('Register'));
     await tester.ensureVisible(Regisbtn);
     await tester.tap(Regisbtn);
