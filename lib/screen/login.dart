@@ -19,7 +19,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey<FormState>();
-  Profile profile = Profile(name: "", lname: "",email: "", password: "");
+  Profile profile = Profile(name: "", lname: "", email: "", password: "");
   final Future<FirebaseApp> firebase = Firebase.initializeApp();
   @override
   Widget build(BuildContext context) {
@@ -188,7 +188,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               height: 55,
                               width: double.infinity,
                               child: ElevatedButton(
-                                key: Key("Create"),
+                                  key: Key("Createbtn"),
                                   style: ElevatedButton.styleFrom(
                                       primary: Color(0xFFE82C3A),
                                       onPrimary: Colors.white,

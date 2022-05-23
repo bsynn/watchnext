@@ -7,7 +7,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:myflutter/model/profile.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:myflutter/screen/home.dart';
+import 'package:myflutter/screen/login.dart';
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -79,6 +79,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         child: Column(
                           children: [
                             TextFormField(
+                              key: Key("Name"),
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.black,
@@ -101,6 +102,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                             SizedBox(height: 15),
                             TextFormField(
+                              key: Key("Last Name"),
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.black,
@@ -123,6 +125,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                             SizedBox(height: 15),
                             TextFormField(
+                              key: Key("Email"),
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.black,
@@ -150,6 +153,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             ),
                             SizedBox(height: 15),
                             TextFormField(
+                              key: Key("Password"),
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.black,
@@ -176,6 +180,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               height: 55,
                               width: double.infinity,
                               child: ElevatedButton(
+                                key: Key("Regisbtn1"),
                                 style: ElevatedButton.styleFrom(
                                     primary: Color(0xFFE82C3A),
                                     onPrimary: Colors.white,
@@ -211,7 +216,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       formKey.currentState!.reset();
                                       Navigator.pushReplacement(context,
                                           MaterialPageRoute(builder: (context) {
-                                        return HomeScreen();
+                                        return LoginScreen();
                                       }));
                                     } on FirebaseAuthException catch (e) {
                                       String message;

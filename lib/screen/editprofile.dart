@@ -49,7 +49,7 @@ class _editprofileState extends State<editprofile> {
               backgroundColor: Colors.black,
               appBar: AppBar(
                 backgroundColor: Colors.black,
-                title: Text("Edit Proflie"),
+                title: Text("Edit Profile"),
                 centerTitle: true,
                 leading: IconButton(
                   onPressed: () {

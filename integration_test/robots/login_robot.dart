@@ -15,15 +15,21 @@ class LogInrobot {
     expect(find.text("Log In"), findsWidgets);
   }
 
-  Future<void> ClickCreate({bool scrollUp = false}) async {
+  Future<void> LogIn({bool scrollUp = false}) async {
     final LogInbtn = find.byKey(const Key('loginbtn'));
 
-    await tester.pump(Duration(milliseconds:400));
+    await tester.pump(Duration(milliseconds: 400));
     await tester.enterText(find.byType(TextFormField).first, 'god@mail.com');
-    await tester.pump(Duration(milliseconds:400));
+    await tester.pump(Duration(milliseconds: 400));
     await tester.enterText(find.byType(TextFormField).last, '123456');
-    await tester.pump(Duration(milliseconds:400));
+    await tester.pump(Duration(milliseconds: 400));
     await tester.tap(LogInbtn);
     await tester.pumpAndSettle();
+  }
+
+  Future<void> tapCreate() async {
+    final Createbtn = find.byKey(const Key('Createbtn'));
+    await tester.tap(Createbtn);
+    await tester.pumpAndSettle(new Duration(seconds: 5));
   }
 }
