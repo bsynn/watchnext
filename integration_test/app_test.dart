@@ -47,7 +47,6 @@ void main() {
       await homerobot.findTitle();
       await Future.delayed(Duration(seconds: 5));
     });
-
   });
 
   group('login', () {
@@ -76,10 +75,64 @@ void main() {
       await logInrobot.tapCreate();
       await Future.delayed(Duration(seconds: 5));
     });
+
+    testWidgets('check Error fill email only', (WidgetTester tester) async {
+      app.main();
+
+      homerobot = Homerobot(tester);
+      await homerobot.findTitle();
+      await homerobot.tapLogIn();
+
+      logInrobot = LogInrobot(tester);
+      await logInrobot.findTitle();
+      await logInrobot.fillEmailOnly();
+      await Future.delayed(Duration(seconds: 5));
+    });
+
+    testWidgets('check Error fill password only', (WidgetTester tester) async {
+      app.main();
+
+      homerobot = Homerobot(tester);
+      await homerobot.findTitle();
+      await homerobot.tapLogIn();
+
+      logInrobot = LogInrobot(tester);
+      await logInrobot.findTitle();
+      await logInrobot.fillPassOnly();
+      await Future.delayed(Duration(seconds: 5));
+    });
+
+    testWidgets('check Error invalid email format',
+        (WidgetTester tester) async {
+      app.main();
+
+      homerobot = Homerobot(tester);
+      await homerobot.findTitle();
+      await homerobot.tapLogIn();
+
+      logInrobot = LogInrobot(tester);
+      await logInrobot.findTitle();
+      await logInrobot.WrongFormatEmail();
+      await Future.delayed(Duration(seconds: 5));
+    });
+
+    testWidgets('check Error wrong email or pass', //still error
+        (WidgetTester tester) async {
+      app.main();
+
+      homerobot = Homerobot(tester);
+      await homerobot.findTitle();
+      await homerobot.tapLogIn();
+
+      logInrobot = LogInrobot(tester);
+      await logInrobot.findTitle();
+      await logInrobot.WrongEmailOrPass();
+      await Future.delayed(Duration(seconds: 5));
+    });
   });
 
   group('Register', () {
-    testWidgets('Create', (WidgetTester tester) async {
+    testWidgets('Register', (WidgetTester tester) async {
       app.main();
 
       homerobot = Homerobot(tester);
@@ -94,10 +147,21 @@ void main() {
       await logInrobot.findTitle();
       await Future.delayed(Duration(seconds: 5));
     });
+
+    testWidgets('Already Account', (WidgetTester tester) async {
+      app.main();
+
+      homerobot = Homerobot(tester);
+      await homerobot.findTitle();
+      await homerobot.tapRegister();
+
+      createrobot = Createrobot(tester);
+      await createrobot.findTitle();
+      await createrobot.AlreadyAccount();
+    });
   });
 
-
   //group('login', () {
-    
+
   //});
 }
