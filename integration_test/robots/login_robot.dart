@@ -64,9 +64,11 @@ class LogInrobot {
     expect(find.text("Invalid email format!"), findsWidgets);
     await tester.pumpAndSettle();
   }
+
   //Still error
   Future<void> WrongEmailOrPass({bool scrollUp = false}) async {
     final LogInbtn = find.byKey(const Key('loginbtn'));
+    //final tryMess = find.byKey(const Key('try'));
 
     await tester.pump(Duration(milliseconds: 400));
     await tester.enterText(find.byType(TextFormField).first, 'god@mail.com');
@@ -80,8 +82,19 @@ class LogInrobot {
 
     // Error ตรงนี้ ไม่แน่
     //expect(
-        //find.text(
-            //"The password is invalid or the user does not have a password."),
-        //findsWidgets);
+    //find.text(
+    //"The password is invalid or the user does not have a password."),
+    //findsWidgets);
+  }
+
+  //null tab login
+  Future<void> NullInput({bool scrollUp = false}) async {
+    final LogInbtn = find.byKey(const Key('loginbtn'));
+    await tester.pump(Duration(milliseconds: 400));
+    //await tester.enterText(find.byType(TextFormField).first, 'god@mail.com');
+    await tester.tap(LogInbtn);
+    await tester.pumpAndSettle();
+    expect(find.text("This field is required!"), findsWidgets);
+    await tester.pumpAndSettle();
   }
 }
