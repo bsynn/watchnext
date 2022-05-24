@@ -129,6 +129,20 @@ void main() {
       await logInrobot.WrongEmailOrPass();
       await Future.delayed(Duration(seconds: 5));
     });
+
+    testWidgets('check null input', //still error
+        (WidgetTester tester) async {
+      app.main();
+
+      homerobot = Homerobot(tester);
+      await homerobot.findTitle();
+      await homerobot.tapLogIn();
+
+      logInrobot = LogInrobot(tester);
+      await logInrobot.findTitle();
+      await logInrobot.NullInput();
+      await Future.delayed(Duration(seconds: 5));
+    });
   });
 
   group('Register', () {
