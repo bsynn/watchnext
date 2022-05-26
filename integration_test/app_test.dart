@@ -210,9 +210,48 @@ void main() {
       await createrobot.findTitle();
       await createrobot.WrongFormatEmail();
     });
+
+    testWidgets('Check error Password shortly', (WidgetTester tester) async {
+      app.main();
+
+      homerobot = Homerobot(tester);
+      await homerobot.findTitle();
+      await homerobot.tapRegister();
+
+      createrobot = Createrobot(tester);
+      await createrobot.findTitle();
+      await createrobot.ShortPass();
+    });
+
+    testWidgets('Check error when input name and lastname',
+        (WidgetTester tester) async {
+      app.main();
+
+      homerobot = Homerobot(tester);
+      await homerobot.findTitle();
+      await homerobot.tapRegister();
+
+      createrobot = Createrobot(tester);
+      await createrobot.findTitle();
+      await createrobot.fillNameAndLN();
+    });
+
+    testWidgets('Check error when input email and password',
+        (WidgetTester tester) async {
+      app.main();
+
+      homerobot = Homerobot(tester);
+      await homerobot.findTitle();
+      await homerobot.tapRegister();
+
+      createrobot = Createrobot(tester);
+      await createrobot.findTitle();
+      await createrobot.fillEmailAndPass();
+    });
   });
 
   //group('login', () {
 
   //});
 }
+
