@@ -173,6 +173,43 @@ void main() {
       await createrobot.findTitle();
       await createrobot.AlreadyAccount();
     });
+
+    testWidgets('Check Null Input', (WidgetTester tester) async {
+      app.main();
+
+      homerobot = Homerobot(tester);
+      await homerobot.findTitle();
+      await homerobot.tapRegister();
+
+      createrobot = Createrobot(tester);
+      await createrobot.findTitle();
+      await createrobot.NullInput();
+    });
+
+    testWidgets('Check error input name only', (WidgetTester tester) async {
+      app.main();
+
+      homerobot = Homerobot(tester);
+      await homerobot.findTitle();
+      await homerobot.tapRegister();
+
+      createrobot = Createrobot(tester);
+      await createrobot.findTitle();
+      await createrobot.fillNameOnly();
+    });
+
+    testWidgets('Check error invalid Email format',
+        (WidgetTester tester) async {
+      app.main();
+
+      homerobot = Homerobot(tester);
+      await homerobot.findTitle();
+      await homerobot.tapRegister();
+
+      createrobot = Createrobot(tester);
+      await createrobot.findTitle();
+      await createrobot.WrongFormatEmail();
+    });
   });
 
   //group('login', () {
