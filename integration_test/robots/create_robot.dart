@@ -69,8 +69,7 @@ class Createrobot {
     expect(find.text("This field is required!"), findsWidgets);
     await tester.pumpAndSettle(new Duration(seconds: 5));
   }
-
-  //Still erroe
+  
   Future<void> WrongFormatEmail({bool scrollUp = false}) async {
     final Regisbtn = find.byKey(const Key("Regisbtn1"));
 
