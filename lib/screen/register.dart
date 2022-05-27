@@ -229,9 +229,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       } else {
                                         message = e.message!;
                                       }
-                                      Fluttertoast.showToast(
-                                          msg: message,
-                                          gravity: ToastGravity.TOP);
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(message),
+                                        ),
+                                      );
                                     }
                                   }
                                 },

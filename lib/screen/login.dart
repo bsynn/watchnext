@@ -165,9 +165,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                         }));
                                       });
                                     } on FirebaseAuthException catch (e) {
-                                      Fluttertoast.showToast(
-                                          msg: e.message!,
-                                          gravity: ToastGravity.TOP);
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(e.message!),
+                                        ),
+                                      );
                                     }
                                   }
                                 },
