@@ -65,33 +65,29 @@ class LogInrobot {
     await tester.pumpAndSettle();
   }
 
-  //Still error
   Future<void> WrongEmailOrPass({bool scrollUp = false}) async {
     final LogInbtn = find.byKey(const Key('loginbtn'));
-    //final tryMess = find.byKey(const Key('try'));
 
     await tester.pump(Duration(milliseconds: 400));
-    await tester.enterText(find.byType(TextFormField).first, 'god@mail.com');
+    await tester.enterText(find.byType(TextFormField).first, 'god1@mail.com');
     await tester.pump(Duration(milliseconds: 400));
     await tester.enterText(find.byType(TextFormField).last, '1234567');
     await tester.pump(Duration(milliseconds: 400));
     await tester.testTextInput.receiveAction(TextInputAction.done);
     await tester.pumpAndSettle(new Duration(seconds: 2));
     await tester.tap(LogInbtn);
-    await tester.pumpAndSettle();
-
-    // Error ตรงนี้ ไม่แน่
-    //expect(
-    //find.text(
-    //"The password is invalid or the user does not have a password."),
-    //findsWidgets);
+    await tester.pumpAndSettle(new Duration(seconds: 5));
+    expect(
+        find.text(
+            "The password is invalid or the user does not have a password."),
+        findsWidgets);
+    await tester.pumpAndSettle(new Duration(seconds: 5));
   }
 
   //null tab login
   Future<void> NullInput({bool scrollUp = false}) async {
     final LogInbtn = find.byKey(const Key('loginbtn'));
     await tester.pump(Duration(milliseconds: 400));
-    //await tester.enterText(find.byType(TextFormField).first, 'god@mail.com');
     await tester.tap(LogInbtn);
     await tester.pumpAndSettle();
     expect(find.text("This field is required!"), findsWidgets);

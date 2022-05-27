@@ -46,12 +46,7 @@ class Createrobot {
     await tester.pumpAndSettle(new Duration(seconds: 2));
     await tester.tap(Regisbtn);
     await tester.pumpAndSettle(new Duration(seconds: 5));
-    expect(
-        find.byElementPredicate(
-            (Element Fluttertoastt) =>
-                Fluttertoastt is SingleChildRenderObjectElement,
-            description:
-                'This email is already in use! Change to another email'),
+    expect(find.text("This email is already in use! Change to another email."),
         findsWidgets);
     await tester.pumpAndSettle(new Duration(seconds: 5));
   }
@@ -113,11 +108,7 @@ class Createrobot {
     await tester.pumpAndSettle(new Duration(seconds: 2));
     await tester.tap(Regisbtn);
     await tester.pumpAndSettle(new Duration(seconds: 5));
-    expect(
-        find.byElementPredicate(
-            (Element Fluttertoastt) =>
-                Fluttertoastt is SingleChildRenderObjectElement,
-            description: 'The password needs to be longer than 6 or equal.'),
+    expect(find.text("The password needs to be longer than 6 or equal."),
         findsWidgets);
     await tester.pumpAndSettle(new Duration(seconds: 5));
   }
@@ -153,4 +144,3 @@ class Createrobot {
     await tester.pumpAndSettle(new Duration(seconds: 5));
   }
 }
-
