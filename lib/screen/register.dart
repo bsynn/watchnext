@@ -227,10 +227,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                         message =
                                             "The password needs to be longer than 6 or equal.";
                                       } else {
-                                        message = message;
+                                        message = e.message!;
                                       }
                                       Fluttertoast.showToast(
-                                          msg: e.message!,
+                                          msg: message,
                                           gravity: ToastGravity.TOP);
                                     }
                                   }
