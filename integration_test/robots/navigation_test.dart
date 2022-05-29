@@ -36,4 +36,13 @@ class Navigationbot {
     await tester.pumpAndSettle(new Duration(seconds: 2));
     await tester.tap(movieIcon);
   }
+
+  Future<void> tapReccommend() async {
+    final navi = find.byKey(const Key("navi"));
+    final recIcon = find.byIcon(Icons.recommend_rounded);
+    await tester.pumpAndSettle(new Duration(seconds: 5));
+    expect(navi, findsWidgets);
+    await tester.pumpAndSettle(new Duration(seconds: 2));
+    await tester.tap(recIcon);
+  }
 }

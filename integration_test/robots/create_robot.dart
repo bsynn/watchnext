@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class Createrobot {
   const Createrobot(this.tester);
@@ -11,10 +10,16 @@ class Createrobot {
 
   Future<void> findTitle() async {
     await tester.pumpAndSettle(new Duration(seconds: 5));
-    expect(find.text("Create Account"), findsWidgets);
+    expect(find.text("Create Account"), findsWidgets);    
+  }
+  //ตย.addข้าม
+  String getFromAdd()  {
+    final CreateText = find.byType(Text).first;
+    var text = CreateText.evaluate().single.widget as Text;
+    return text.data.toString();
   }
 
-  Future<void> Register({bool scrollUp = false}) async {
+  Future<void> Register() async {
     final Regisbtn = find.byKey(const Key("Regisbtn1"));
 
     await tester.pump(Duration(milliseconds: 400));

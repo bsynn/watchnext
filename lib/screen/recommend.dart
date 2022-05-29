@@ -3363,7 +3363,7 @@ class _recScreenState extends State<recScreen> {
                                                               SizedBox(height: 15,),
                                                               SizedBox(
                                                                 child: Text(
-                                                                  "Can't Recommend\nPlease add movie to My List",
+                                                                  "Can't Recommend\nPlease add movie to My List",//hight ava
                                                                   textAlign:
                                                                       TextAlign
                                                                           .center,

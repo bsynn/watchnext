@@ -9,6 +9,7 @@ import 'robots/home_robot.dart';
 import 'robots/login_robot.dart';
 import 'robots/navigation_test.dart';
 import 'robots/editprofile_robot.dart';
+import 'robots/select_robot.dart';
 
 void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized()
@@ -19,7 +20,8 @@ void main() {
   Navigationbot navigationbot;
   EditProfilebot editProfilebot;
   Createrobot createrobot;
-
+  String moviename;
+  Selectrobot selectrobot;
   group('e2etest', () {
     testWidgets('Boot app', (WidgetTester tester) async {
       app.main();
@@ -250,8 +252,25 @@ void main() {
     });
   });
 
+  group('Movie', () {
+    testWidgets('Select Movie', (WidgetTester tester) async {
+      app.main();
+
+      homerobot = Homerobot(tester);
+      await homerobot.findTitle();
+      await homerobot.tapLogIn();
+
+      logInrobot = LogInrobot(tester);
+      await logInrobot.findTitle();
+      await logInrobot.LogIn();
+
+      selectrobot = Selectrobot(tester);
+      await selectrobot.findTitle();
+      await Future.delayed(Duration(seconds: 5));
+    });
+  });
+
   //group('login', () {
 
   //});
 }
-

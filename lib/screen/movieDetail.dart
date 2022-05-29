@@ -206,6 +206,7 @@ class _MovieDetailState extends State<MovieDetail> {
                   //mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     FavoriteButton(
+                      key: Key("FavoriteButton"),
                       isFavorite: add,
                       valueChanged: (_isFavorite) async {
                         if (_isFavorite) {
