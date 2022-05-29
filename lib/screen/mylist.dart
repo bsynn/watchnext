@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors
+// ignore_for_file: camel_case_types, prefer_const_constructors, dead_code
 
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -50,6 +50,34 @@ class _mylistState extends State<mylist> {
             if (!snapshot1.hasData) {
               return Center(
                 child: CircularProgressIndicator(),
+              );
+            } else if(!(snapshot1.hasData)){
+              return Scaffold(
+                backgroundColor: Colors.black,
+                body: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Icon(
+                          Icons.hourglass_empty_rounded,
+                          color: Colors.white,
+                          size: 40,
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        SizedBox(
+                          key: Key("EmptyMylist"),
+                          child: Text(
+                            "My List is empty\nPlease add movie to My List", //hight ava
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          ),
+                        ),
+                      ]),
+                ),
               );
             }
             return Scaffold(

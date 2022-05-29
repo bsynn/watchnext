@@ -13,4 +13,8 @@ class Recrobot {
     expect(find.text("Recommend"), findsWidgets);
   }
 
+  Future<void> findType(String type1) async {
+    await tester.pumpAndSettle(new Duration(seconds: 5));
+    expect(find.text(type1), findsWidgets);
+  }
 }

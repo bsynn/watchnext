@@ -78,6 +78,7 @@ class _MovieDetailState extends State<MovieDetail> {
               SizedBox(
                 child: Text(
                   provider.name,
+                  key:Key("movieName"),
                   style: TextStyle(
                       fontSize: 26,
                       fontWeight: FontWeight.w500,
@@ -94,6 +95,7 @@ class _MovieDetailState extends State<MovieDetail> {
                   padding: const EdgeInsets.symmetric(horizontal: 15.0),
                   child: Text(
                     provider.type,
+                    key: Key("movieType"),
                     style: TextStyle(fontSize: 12, color: Colors.white),
                   ),
                 ),
@@ -110,6 +112,7 @@ class _MovieDetailState extends State<MovieDetail> {
                   SizedBox(
                     child: Text(
                       provider.critic,
+                      key: Key("movieCritic"),
                       style: TextStyle(fontSize: 14, color: Colors.white),
                     ),
                   ),
@@ -122,6 +125,7 @@ class _MovieDetailState extends State<MovieDetail> {
                   SizedBox(
                     child: Text(
                       provider.audience,
+                      key: Key("movieAudience"),
                       style: TextStyle(fontSize: 14, color: Colors.white),
                     ),
                   ),
@@ -138,6 +142,7 @@ class _MovieDetailState extends State<MovieDetail> {
               SizedBox(
                 child: Text(
                   provider.storyline,
+                  key: Key("movieStoryline"),
                   style: TextStyle(fontSize: 14, color: Colors.white),
                 ),
               ),
@@ -208,7 +213,7 @@ class _MovieDetailState extends State<MovieDetail> {
                   children: [
                     FavoriteButton(
                       key: Key("FavoriteButton"),
-                      isFavorite: add,
+                      isFavorite:add,
                       valueChanged: (_isFavorite) async {
                         if (_isFavorite) {
                           DocumentReference storeReference = FirebaseFirestore

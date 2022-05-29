@@ -37,6 +37,16 @@ class Navigationbot {
     await tester.tap(movieIcon);
   }
 
+  Future<void> tapMylist() async {
+    final navi = find.byKey(const Key("navi"));
+    final favIcon = find.byIcon(Icons.favorite_border_rounded);
+    await tester.pumpAndSettle(new Duration(seconds: 5));
+    expect(navi, findsWidgets);
+    await tester.pumpAndSettle(new Duration(seconds: 2));
+    await tester.tap(favIcon);
+    await tester.pumpAndSettle(new Duration(seconds: 5));
+  }
+
   Future<void> tapReccommend() async {
     final navi = find.byKey(const Key("navi"));
     final recIcon = find.byIcon(Icons.recommend_rounded);
@@ -45,4 +55,5 @@ class Navigationbot {
     await tester.pumpAndSettle(new Duration(seconds: 2));
     await tester.tap(recIcon);
   }
+
 }
