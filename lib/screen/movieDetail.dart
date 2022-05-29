@@ -46,6 +46,7 @@ class _MovieDetailState extends State<MovieDetail> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         leading: IconButton(
+          key: Key("back"),
           onPressed: () {
             Navigator.pop(context);
           },

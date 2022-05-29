@@ -10,6 +10,7 @@ import 'robots/login_robot.dart';
 import 'robots/navigation_test.dart';
 import 'robots/editprofile_robot.dart';
 import 'robots/select_robot.dart';
+import 'robots/mylist_robot.dart';
 
 void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized()
@@ -22,7 +23,9 @@ void main() {
   Createrobot createrobot;
   String moviename;
   Selectrobot selectrobot;
-  group('e2etest', () {
+  MyListrobot mylistrobot;
+
+  group('Basic', () {
     testWidgets('Boot app', (WidgetTester tester) async {
       app.main();
 
@@ -268,9 +271,26 @@ void main() {
       await selectrobot.findTitle();
       await Future.delayed(Duration(seconds: 5));
     });
+
+    testWidgets('Add Movie', (WidgetTester tester) async {
+      app.main();
+
+      homerobot = Homerobot(tester);
+      await homerobot.findTitle();
+      await homerobot.tapLogIn();
+
+      logInrobot = LogInrobot(tester);
+      await logInrobot.findTitle();
+      await logInrobot.LogIn();
+
+      selectrobot = Selectrobot(tester);
+      await selectrobot.findTitle();
+      await Future.delayed(Duration(seconds: 5));
+
+      mylistrobot = MyListrobot(tester);
+      await mylistrobot.AddMovie();
+      await Future.delayed(Duration(seconds: 5));
+    });
   });
 
-  //group('login', () {
-
-  //});
 }
